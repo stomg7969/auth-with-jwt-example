@@ -25,7 +25,7 @@ class UserProfile extends Component {
       <div>
         <h3>profile</h3>
         <Switch>
-          <Route path="/user/profile/udpate" component={PasswordUpdate} />
+          <Route path="/user/profile/update" component={PasswordUpdate} />
           <Route
             path="/user/profile"
             render={() => {

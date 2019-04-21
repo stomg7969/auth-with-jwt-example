@@ -7,6 +7,10 @@ import UserLogin from "./Components/UserLogin";
 import UserProfile from "./Components/UserProfile";
 
 class App extends Component {
+  state = {
+    user: {}
+  };
+
   componentDidMount() {
     // this get requests gives me my user profile
     // I can change 'profile' to 'users', it will still work.
@@ -18,13 +22,7 @@ class App extends Component {
       }
     })
       .then(r => r.json())
-      .then(data =>
-        console.log(
-          "%c Authenticate to be authorized GET request",
-          "background: #222; color: #bada55",
-          data
-        )
-      );
+      .then(data => this.setState({ user: data.user }));
   }
 
   clickListener = () => {
@@ -37,11 +35,13 @@ class App extends Component {
       "%c local Storage info: ",
       "background: #222; color: aqua",
       localStorage,
-      localStorage.getItem("user_token")
+      localStorage.getItem("user_token"),
+      this.state.user
     );
     return (
       <div className="App">
         <header className="App-header">
+          {localStorage.length ? <h2>{this.state.user.name}</h2> : null}
           <Switch>
             <Route path="/signup" component={UserSignup} />
             <Route path="/login" component={UserLogin} />
@@ -59,12 +59,17 @@ class App extends Component {
           >
             Learn React
           </a>
-          <Link to="/signup">
-            <button>Signup</button>
-          </Link>
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
+          {!localStorage.length ? (
+            <Link to="/signup">
+              <button>Signup</button>
+            </Link>
+          ) : null}
+          {!localStorage.length ? (
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+          ) : null}
+
           {localStorage.length ? (
             <Link to="/user/profile">
               <button>User Profile</button>
