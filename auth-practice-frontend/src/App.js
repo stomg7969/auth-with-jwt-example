@@ -24,7 +24,7 @@ class App extends Component {
       .then(r => r.json())
       .then(data => this.setState({ user: data.user }));
   }
-
+  // when new user is logged in, it will change the state and re renders the page.
   changeCurrentUser = data => {
     this.setState({ user: data.user });
   };
