@@ -1836,3 +1836,41 @@ Processing by Api::V1::UsersController#profile as */*
 Completed 202 Accepted in 4ms (Views: 1.6ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/api/v1/users" for ::1 at 2019-04-21 01:40:02 -0400
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/NatePark/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Api::V1::UsersController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2019-04-21 01:40:32 -0400
+Processing by Api::V1::UsersController#profile as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:33
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (11.68ms)
+Completed 202 Accepted in 90ms (Views: 13.7ms | ActiveRecord: 37.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2019-04-21 01:41:00 -0400
+Processing by Api::V1::UsersController#create as JSON
+  Parameters: {"user"=>{"name"=>"eug", "email"=>"eug", "password"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/users_controller.rb:14
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) LIMIT $2[0m  [["name", "eug"], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:14
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "eug"], ["email", "eug"], ["password_digest", "$2a$10$f4xiNeOLTzXUdLG0R0jWzuCMAIIv7g5PiXCE2Mr1iL9wsO8c/IHkm"], ["created_at", "2019-04-21 05:41:00.207465"], ["updated_at", "2019-04-21 05:41:00.207465"]]
+  ↳ app/controllers/api/v1/users_controller.rb:14
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/users_controller.rb:14
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["name", "eug"], ["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:15
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 201 Created in 128ms (Views: 0.8ms | ActiveRecord: 46.7ms)
+
+
