@@ -4,7 +4,6 @@ class User < ApplicationRecord
   validates :name, :uniqueness => { case_sensitive: false }
   validates_presence_of :name, :email, :password
 
-
   # has_secure_password => this handles everything on the bottom.
   # attr_accessor :password
   #
@@ -15,5 +14,4 @@ class User < ApplicationRecord
   #     false
   #   end
   # end
-
 end
