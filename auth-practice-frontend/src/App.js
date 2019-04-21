@@ -20,7 +20,7 @@ class App extends Component {
       .then(r => r.json())
       .then(data =>
         console.log(
-          "%c Authenticate to be authorized",
+          "%c Authenticate to be authorized GET request",
           "background: #222; color: #bada55",
           data
         )
@@ -41,12 +41,12 @@ class App extends Component {
     );
     return (
       <div className="App">
-        <Switch>
-          <Route path="/signup" component={UserSignup} />
-          <Route path="/login" component={UserLogin} />
-          <Route path="/user/profile" component={UserProfile} />
-        </Switch>
         <header className="App-header">
+          <Switch>
+            <Route path="/signup" component={UserSignup} />
+            <Route path="/login" component={UserLogin} />
+            <Route path="/user/profile" component={UserProfile} />
+          </Switch>
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             Edit <code>src/App.js</code> and save to reload.
@@ -70,7 +70,9 @@ class App extends Component {
               <button>User Profile</button>
             </Link>
           ) : null}
-          <button onClick={this.clickListener}>Logout</button>
+          {localStorage.length ? (
+            <button onClick={this.clickListener}>Logout</button>
+          ) : null}
         </header>
       </div>
     );
