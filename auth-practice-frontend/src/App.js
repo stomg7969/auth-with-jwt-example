@@ -24,8 +24,14 @@ class App extends Component {
       .then(r => r.json())
       .then(data => this.setState({ user: data.user }));
   }
+
+  changeCurrentUser = data => {
+    this.setState({ user: data.user });
+  };
+
   // handles user log out
   clickListener = () => {
+    this.setState({ user: "" });
     localStorage.removeItem("user_token");
     this.props.history.push("/");
   };
@@ -45,7 +51,10 @@ class App extends Component {
           {localStorage.length ? <h2>{this.state.user.name}</h2> : null}
           <Switch>
             <Route path="/signup" component={UserSignup} />
-            <Route path="/login" component={UserLogin} />
+            <Route
+              path="/login"
+              render={() => <UserLogin currentUser={this.changeCurrentUser} />}
+            />
             <Route path="/user/profile" component={UserProfile} />
           </Switch>
           <img src={logo} className="App-logo" alt="logo" />
