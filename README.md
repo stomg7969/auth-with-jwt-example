@@ -18,4 +18,4 @@ both frontend and backend
 
 ### Stretch Goal
 - Reset password
-Good resource [Creating Secure Password Resets With JSON Web Tokens](https://www.smashingmagazine.com/2017/11/safe-password-resets-with-json-web-tokens/)
+Good resource [Handle Password and Email Changes in Your Rails API](https://www.sitepoint.com/handle-password-and-email-changes-in-your-rails-api/)
