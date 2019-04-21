@@ -13,7 +13,7 @@ class App extends Component {
 
   componentDidMount() {
     // this get requests gives me my user profile
-    // I can change 'profile' to 'users', it will still work.
+    // I can change 'profile' to 'users', it will authorize me to get an access to user index without touch backend.
     const token = localStorage.getItem("user_token");
     fetch("http://localhost:3000/api/v1/profile", {
       method: "GET",
@@ -24,12 +24,13 @@ class App extends Component {
       .then(r => r.json())
       .then(data => this.setState({ user: data.user }));
   }
-
+  // handles user log out
   clickListener = () => {
     localStorage.removeItem("user_token");
     this.props.history.push("/");
   };
-
+  // this page will render all buttons. when logged out, signup and log in button will render.
+  // when logged in, profile and log out button will render.
   render() {
     console.log(
       "%c local Storage info: ",

@@ -10,7 +10,7 @@ class UserLogin extends React.Component {
   changeListener = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  // listens to submit and lets user signup
+  // listens to submit and lets user log in
   submitListener = e => {
     e.preventDefault();
     const { name, password } = this.state;

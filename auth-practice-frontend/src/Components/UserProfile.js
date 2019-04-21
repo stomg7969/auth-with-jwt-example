@@ -11,7 +11,7 @@ class UserProfile extends Component {
     // const decoded = jwt.verify(token, ENV["AUTH_KEY"], dotenv.config());
     // process.env.AUTH_KEY
     const decoded = jwt.verify(token, "my_s3cr3t");
-
+    // still working on moving my secret key to env.
     console.log(
       "%c what is this",
       "background: #222; color: yellow",
@@ -19,7 +19,7 @@ class UserProfile extends Component {
       decoded
     );
   }
-
+  // profile page. has a button that calls PasswordUpdate component
   render() {
     return (
       <div>

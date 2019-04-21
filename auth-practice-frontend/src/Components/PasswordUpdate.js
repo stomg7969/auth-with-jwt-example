@@ -7,11 +7,15 @@ class PasswordUpdate extends Component {
     newPW: "",
     confirmPW: ""
   };
-
+  // listens to changes and set states
   changeListener = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  // jsonwebtoken library.
+  // I don't have to passdown user props from parent component.
+  // I can just get user_id right away.
 
+  // updates user password.
   submitListener = e => {
     e.preventDefault();
     const { newPW, confirmPW } = this.state;
