@@ -18,6 +18,6 @@ both frontend and backend
 
 ### Stretch Goal
 - Reset password
-Good resources: 
+```Good resources:``` 
 - [Handle Password and Email Changes in Your Rails API](https://www.sitepoint.com/handle-password-and-email-changes-in-your-rails-api/)
 - [Password Reset Emails In Your React App Made Easy with Nodemailer](https://itnext.io/password-reset-emails-in-your-react-app-made-easy-with-nodemailer-bb27968310d7)
