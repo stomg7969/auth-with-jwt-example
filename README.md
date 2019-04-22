@@ -14,8 +14,10 @@ both frontend and backend
 - Sign up or Log in
 - Be authorized to request user profile
 - Change password
-** Using jsonwebtoken library, I am able to grab user information anywhere by decoding user jwt and request for password update instead of passing down user props from parent component.
+**Using jsonwebtoken library, I am able to grab user information anywhere by decoding user jwt and request for password update instead of passing down user props from parent component.
 
 ### Stretch Goal
 - Reset password
-Good resource [Handle Password and Email Changes in Your Rails API](https://www.sitepoint.com/handle-password-and-email-changes-in-your-rails-api/)
+Good resources: 
+- [Handle Password and Email Changes in Your Rails API](https://www.sitepoint.com/handle-password-and-email-changes-in-your-rails-api/)
+- [Password Reset Emails In Your React App Made Easy with Nodemailer](https://itnext.io/password-reset-emails-in-your-react-app-made-easy-with-nodemailer-bb27968310d7)
