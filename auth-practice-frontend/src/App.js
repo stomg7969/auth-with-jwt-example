@@ -39,7 +39,7 @@ class App extends Component {
   // when logged in, profile and log out button will render.
   render() {
     console.log(
-      "%c local Storage info: ",
+      "%c LOCAL STORAGE INFO IN APP: ",
       "background: #222; color: aqua",
       localStorage,
       localStorage.getItem("user_token"),
@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {localStorage.length ? <h2>{this.state.user.name}</h2> : null}
+          {localStorage.length ? <h2>Hello, {this.state.user.name}</h2> : null}
           <Switch>
             <Route
               path="/signup"
