@@ -31,7 +31,7 @@ class UserSignup extends React.Component {
     })
       .then(r => r.json())
       .then(data => {
-        // this.setState({ user: data });
+        this.props.currentUser(data);
         localStorage.setItem("user_token", data.jwt);
         this.props.history.push("/");
       });

@@ -50,7 +50,10 @@ class App extends Component {
         <header className="App-header">
           {localStorage.length ? <h2>{this.state.user.name}</h2> : null}
           <Switch>
-            <Route path="/signup" component={UserSignup} />
+            <Route
+              path="/signup"
+              render={() => <UserSignup currentUser={this.changeCurrentUser} />}
+            />
             <Route
               path="/login"
               render={() => <UserLogin currentUser={this.changeCurrentUser} />}
@@ -61,14 +64,7 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+
           {!localStorage.length ? (
             <Link to="/signup">
               <button>Signup</button>
