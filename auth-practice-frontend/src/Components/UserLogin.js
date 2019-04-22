@@ -29,9 +29,15 @@ class UserLogin extends React.Component {
     })
       .then(r => r.json())
       .then(data => {
-        this.props.currentUser(data);
-        localStorage.setItem("user_token", data.jwt);
-        this.props.history.push("/");
+        if (data.message) {
+          alert(data.message);
+          this.setState({ name: "", password: "" });
+          this.props.history.push("/login");
+        } else {
+          this.props.currentUser(data);
+          localStorage.setItem("user_token", data.jwt);
+          this.props.history.push("/");
+        }
       });
   };
 
