@@ -22,7 +22,7 @@ class PasswordUpdate extends Component {
     if (newPW === confirmPW) {
       const jwt = require("jsonwebtoken");
       const token = localStorage.getItem("user_token");
-      const decoded = jwt.verify(token, "my_s3cr3t");
+      const decoded = jwt.verify(token, process.env.REACT_APP_AUTH_KEY);
 
       fetch(`http://localhost:3000/api/v1/users/${decoded.user_id}`, {
         method: "PATCH",
