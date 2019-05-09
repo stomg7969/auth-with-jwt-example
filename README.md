@@ -1,8 +1,13 @@
 # auth-with-jwt-example
 
-both frontend and backend
-
 ## practice lab for Authentication and Authorization
+
+_A purpose of this repo is for users to understand the process of authentication and authorization_
+
+### Instruction
+
+1. `rails s` - localhost MUST be 3000 or customize url manually.
+2. `npm start`
 
 ### Landing Page:
 
